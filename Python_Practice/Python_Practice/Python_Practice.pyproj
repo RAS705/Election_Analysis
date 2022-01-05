@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fd1387fa-e572-421e-b8f5-36f692d5a015</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Python_Practice.py</StartupFile>
+    <StartupFile>PyPoll_Challenge.py</StartupFile>
     <SearchPath>..\..\Resources</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -21,6 +21,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PyPoll.py" />
+    <Compile Include="PyPoll_Challenge.py" />
     <Compile Include="Python_Practice_2.py" />
     <Compile Include="Python_Practice.py" />
     <Compile Include="Python_Practice_3.py" />
