@@ -170,6 +170,7 @@ for candidate_name in candidates_votes:
     # 4. Print the candidate name and percentage of votes.
     print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
 
+
 print()
 
 winning_candidate_summary = (
@@ -189,6 +190,30 @@ election_analysis.write("Counties in the Election\n")
 election_analysis.write("------------------------\n")
 election_analysis.write("Arapahoe\nDenver\nJefferson")
 
+# Print the final vote count to the terminal.
+election_results = (
+        f"\n\n\n\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+
+print(election_results, end="")
+# Save the final vote count to the text file.
+election_analysis.write(election_results)
+
+for candidate_name in candidates_votes:
+    # 2. Retrieve vote count of a candidate.
+    votes = candidates_votes[candidate_name]
+
+    # 3. Calculate the percentage of votes.
+    vote_percentage = float(votes) / float(total_votes) * 100
+
+    # 4b. Print the candidate name and percentage of votes to the analysis report
+    election_analysis.write(f"\n{candidate_name}: {vote_percentage:.1f}% ({votes:,}).\n")
+
+# Save the winner to the text file.
+election_analysis.write("\n\n\n")
+election_analysis.write(winning_candidate_summary)
 
 # Close the file.
 election_data.close()
