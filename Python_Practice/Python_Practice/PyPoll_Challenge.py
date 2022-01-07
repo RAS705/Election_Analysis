@@ -1,3 +1,31 @@
+#***************************************************************************************
+#***************************************************************************************
+#** 
+#**  Module: PyPoll
+#**  Author: Randy sendek
+#**  Version: 1.0
+#**  Date: 1/7/2022
+#**
+#**  Description: Utilize python to readin a CSV File (election_results.csv). This file
+#**  contains the following data:
+#**
+#**     - a number for the ballot ID
+#**     - name for the county
+#**     - The name of the candidate receiving the vote
+#**
+#**  The program will analysze the provided congressional race voting data and 
+#**  produce the following output:
+#**  
+#**     - Total number of votes cast in the election
+#**     - A complete list of candidates who received votes
+#**     - Total number of votes each candidate received
+#**     - Percentage of votes each candidate received
+#**     - The winner of the election based on popular vote
+#**
+#**
+#***************************************************************************************
+#***************************************************************************************
+
 # -*- coding: UTF-8 -*-
 """PyPoll Homework Challenge Solution."""
 
@@ -34,8 +62,15 @@ winning_percentage = 0
 largest_county = ""
 largest_county_vote = 0
 
+#***************************************************************************************
+#***************************************************************************************
+#**
+#** Read the csv data file - Election_results.csv
+#** and convert it into a list of dictionaries
+#**
+#***************************************************************************************
+#***************************************************************************************
 
-# Read the csv and convert it into a list of dictionaries
 with open(file_to_load) as election_data:
     reader = csv.reader(election_data)
 
@@ -83,7 +118,14 @@ with open(file_to_load) as election_data:
         county_votes[county_name] += 1
 
 
-# Save the results to our text file.
+#***************************************************************************************
+#***************************************************************************************
+#**
+#** After the analysis, save the results to the results text file - election_analysis.txt
+#**
+#***************************************************************************************
+#***************************************************************************************
+
 with open(file_to_save, "w") as txt_file:
 
     # Print the final vote count (to terminal)
@@ -167,3 +209,8 @@ with open(file_to_save, "w") as txt_file:
 
     # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
+
+# Close the input file.
+election_data.close()
+# Close the results file.
+txt_file.close()
