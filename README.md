@@ -112,16 +112,18 @@ The solution will determine which candidate had the highest vote count.
 The solution will produce a report on the screen and in the defined report text file which reports the results of election.
 
 
-![](Resources/election_report.jpg)
+![](Resources/Election_report.jpg)
 
 
 
 
 ## Summary of Results
 
-The audit found that there were **369,711 total votes** cast in the congressional precinct. 
+### Total Votes in Election
+After the solution ran, the audit found that there were **369,711 total votes** cast in the congressional precinct. 
 
-The precinct consisted of the following counties: 
+### County Results
+The congressional election had votes cast in the following counties: 
 
 <table>
 <tr>
@@ -150,6 +152,9 @@ The precinct consisted of the following counties:
 </tr>
 </table>
 
+The audit found that **Denver county** was the largest county to have votes cast.
+
+### Candidate Results
 
 The audit found the following candidates received votes in the audited election:
 
@@ -179,6 +184,9 @@ The audit found the following candidates received votes in the audited election:
 <td></td>
 </tr>
 </table>
+
+
+The audit determined that **Diana DeGette** was the winner of the election.
 
 ## Audit Summary
 
