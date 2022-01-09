@@ -18,6 +18,104 @@ The audit will review a data file provided by the board of election. This file c
 
 ![](Resources/data-3-3-1-first-10-rows.png)
 
+## Overview of Solution
+
+The current solution will read in the defined data file.
+
+    # Add a variable to load a file from a path.
+	file_to_load = '..\..\Resources\election_results.csv'
+
+The solution will define a data file for the results to be printed in.
+    # Add a variable to save the file to a path.
+	file_to_save = '..\..\Analysis\election_analysis.txt'
+
+The solution will read through the data file row by row to analyze each vote. Part of the analyziz is to count all of the votes.
+
+    # For each row in the CSV file.
+    for row in reader:
+
+        # Add to the total vote count
+        total_votes = total_votes + 1
+
+The solution will determine all of the candidates in the election and how many votes each received.
+
+    # If the candidate does not match any existing candidate add it to
+    # the candidate list
+       if candidate_name not in candidate_options:
+
+          # Add the candidate name to the candidate list.
+          candidate_options.append(candidate_name)
+
+          # And begin tracking that candidate's voter count.
+          candidate_votes[candidate_name] = 0
+
+      # Add a vote to that candidate's count
+      candidate_votes[candidate_name] += 1
+
+The solution will also determine the number of votes cast in each county 
+
+       # 4a: Write an if statement that checks that the
+       # county does not match any existing county in the county list.
+       if county_name not in county_options:
+
+           # 4b: Add the existing county to the list of counties.
+           county_options.append(county_name)
+
+           # 4c: Begin tracking the county's vote count.
+           county_votes[county_name] = 0
+
+        # 5: Add a vote to that county's vote count.
+        county_votes[county_name] += 1
+
+The solution will determine which county had the highest voter turn and print the number of voters which turned out.
+
+	# 6a: Write a for loop to get the county from the county dictionary.
+
+    for county_name in county_options:
+
+                
+        # 6f: Write an if statement to determine the winning county and get its vote count.
+        # Determine winning vote count, winning percentage, and candidate.
+        if votes > largest_county_vote:
+            largest_county_vote = votes
+            largest_county_percent = vote_percentage
+            largest_county = county_name
+
+    # 7: Print the county with the largest turnout to the terminal.
+    winning_county_summary = (
+        f"-------------------------\n"
+        f"Largest County: {largest_county}\n"
+        f"County Vote Count: {largest_county_vote:,}\n"
+        f"County Vote percentage of total: {largest_county_percent:.1f}%\n"
+        f"-------------------------\n")
+    print(winning_county_summary)
+ 
+The solution will determine which candidate had the highest vote count.
+
+	for candidate_name in candidate_votes:
+
+        # Determine winning vote count, winning percentage, and candidate.
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_candidate = candidate_name
+            winning_percentage = vote_percentage
+
+    # Print the winning candidate (to terminal)
+    winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
+    print(winning_candidate_summary)
+
+The solution will produce a report on the screen and in the defined report text file which reports the results of election.
+
+
+![](Resources/election_report.jpg)
+
+
+
 
 ## Summary of Results
 
