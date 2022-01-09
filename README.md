@@ -112,7 +112,7 @@ The solution will determine which candidate had the highest vote count.
 The solution will produce a report on the screen and in the defined report text file which reports the results of election.
 
 
-![](Resources/election_report.jpg)
+![](Resources/Election_report.jpg)
 
 
 
